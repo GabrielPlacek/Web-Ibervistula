@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IberVistula | Consultoría Estratégica Eje Ibérico-Vístula</title>
+    <meta name="description" content="Agencia B2B de desarrollo de operaciones comerciales, logística y expansión corporativa en el corredor transfronterizo España-Polonia.">
+    <meta name="author" content="IberVistula B2B Consulting">
+    
+    <!-- Google Fonts: Playfair Display & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-primary: #0A0E17;
+            --bg-surface: #111827;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-main: #F3F4F6;
+            --text-muted: #9CA3AF;
+            --accent-gold: #C5A059;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+            --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header / Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 14, 23, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 5rem;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        .btn-primary {
+            background: transparent;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 0.75rem 1.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: 2px;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 5rem;
+            position: relative;
+            background: radial-gradient(circle at 80% 20%, rgba(197, 160, 89, 0.05) 0%, transparent 40%),
+                        radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 40%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 4vw, 4rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-content h1 span {
+            color: var(--accent-gold);
+            font-style: italic;
+        }
+
+        .hero-content p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            font-weight: 300;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1.25rem;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.375rem 1rem;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent-gold);
+            border-radius: 50%;
+        }
+
+        .hero-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .hero-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-gold), transparent);
+        }
+
+        .hero-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+        }
+
+        .metric-item .value {
+            font-family: var(--font-serif);
+            font-size: 1.75rem;
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .metric-item .label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Services Section */
+        .section {
+            padding: 7rem 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .section-header {
+            max-width: 700px;
+            margin-bottom: 4rem;
+        }
+
+        .section-subtitle {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 3vw, 2.75rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            padding: 3rem 2rem;
+            border-radius: 4px;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-card:hover {
+            border-color: rgba(197, 160, 89, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .service-number {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            color: rgba(255, 255, 255, 0.05);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* Authority / Technical Focus Section */
+        .authority-section {
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-surface) 100%);
+        }
+
+        .authority-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .authority-content p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .checklist {
+            margin-top: 2rem;
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .checklist li svg {
+            color: var(--accent-gold);
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        /* Executive Card Replacement for Terminal */
+        .executive-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            padding: 3rem 2.5rem;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .executive-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-gold), transparent);
+        }
+
+        .executive-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .executive-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 1.75rem;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        .executive-highlight {
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+        }
+
+        .highlight-title {
+            font-size: 0.75rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.35rem;
+        }
+
+        .highlight-desc {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            font-weight: 400;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 4rem 0;
+            background: var(--bg-primary);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-info p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        .footer-contact {
+            text-align: right;
+        }
+
+        .footer-contact a {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            color: var(--accent-gold);
+            border-bottom: 1px solid transparent;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-contact a:hover {
+            border-bottom-color: var(--accent-gold);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-grid, .authority-grid, .services-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 1.25rem;
+            }
+            .hero-cta-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-contact {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Institucional -->
+    <header>
+        <div class="container nav-container">
+            <a href="https://ibervistula.com" class="logo">
+                Iber<span>Vistula</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#servicios">Especialidades</a>
+                <a href="#rigor">Rigor Analítico</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+            <a href="mailto:gplacek@ibervistula.com" class="btn-primary">
+                Iniciar Colaboración
+            </a>
+        </div>
+    </header>
+
+    <!-- Sección Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">Corredor Transfronterizo España-Polonia</div>
+                    <h1>Arquitectura comercial para el <em>Eje Ibérico-Vístula</em>.</h1>
+                    <p>Agencia B2B de consultoría de alta gama especializada en el desarrollo de operaciones comerciales, optimización logística y expansión corporativa bilateral entre la península ibérica y Europa Central.</p>
+                    <div class="hero-cta-group">
+                        <a href="mailto:gplacek@ibervistula.com" class="btn-primary" style="padding: 1rem 2rem; font-size: 0.95rem;">
+                            Contacto Ejecutivo &rarr;
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-card">
+                    <h3>Asesoría Estratégica Bilateral</h3>
+                    <p>Conectamos directrices corporativas con una ejecución precisa sobre el terreno en Varsovia, Madrid y polos industriales clave.</p>
+                    <div class="metric-grid">
+                        <div class="metric-item">
+                            <div class="value">2.4k+</div>
+                            <div class="label">Km de Corredor Logístico</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="value">B2B</div>
+                            <div class="label">Enfoque Exclusivo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Servicios / Pilares -->
+    <section id="servicios" class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Áreas de Especialización</div>
+                <h2 class="section-title">Infraestructura comercial y asesoría operativa de precisión.</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div>
+                        <div class="service-number">01</div>
+                        <h3>Conexión Logística y Comercial</h3>
+                        <p>Diseño y consolidación de rutas de suministro, alianzas de distribución y optimización de flujos mercantiles entre hubs ibéricos y polacos.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div>
+                        <div class="service-number">02</div>
+                        <h3>Inteligencia de Mercado</h3>
+                        <p>Análisis macroeconómico, estudios de viabilidad regulatoria y due diligence comercial para entradas seguras en nuevos mercados de Europa Central.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div>
+                        <div class="service-number">03</div>
+                        <h3>Implantación y Sourcing</h3>
+                        <p>Apertura operativa, selección de socios industriales locales y gestión integral de cadenas de valor transfronterizas bajo estándares ejecutivos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Autoridad y Rigor Técnico -->
+    <section id="rigor" class="section authority-section">
+        <div class="container">
+            <div class="authority-grid">
+                <div class="authority-content">
+                    <div class="section-subtitle">Rigor Analítico</div>
+                    <h2 class="section-title" style="margin-bottom: 1.5rem;">Metodología basada en datos y gobernanza estricta.</h2>
+                    <p>Operamos bajo un marco analítico riguroso que mitiga los riesgos regulatorios y de fricción cultural inherentes a la expansión internacional en Europa del Este.</p>
+                    <ul class="checklist">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Auditoría previa de cumplimiento normativo comunitario y bilateral.
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Red de contactos directos con decisores C-level en ambos ejes.
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Monitorización constante de indicadores clave de rendimiento (KPIs).
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <!-- Tarjeta de síntesis corporativa ejecutiva (Sustituye al bloque de código JSON) -->
+                    <div class="executive-card">
+                        <h3>Gobernanza Transfronteriza</h3>
+                        <p>Estructuración jurídica, fiscal y operativa adaptada con precisión quirúrgica a las directivas del Mercado Único Europeo y los marcos regulatorios nacionales.</p>
+                        <div class="executive-highlight">
+                            <span class="highlight-title">Dirección de Operaciones</span>
+                            <span class="highlight-desc">Liderazgo estratégico y supervisión directa en el Eje Ibérico-Vístula.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de Página Institucional -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <a href="https://ibervistula.com" class="logo" style="font-size: 1.25rem;">
+                        Iber<span>Vistula</span>
+                    </a>
+                    <p>&copy; 2026 IberVistula. Todos los derechos reservados. Madrid &mdash; Varsovia.</p>
+                </div>
+                <div class="footer-contact">
+                    <div class="section-subtitle" style="margin-bottom: 0.25rem;">Contacto Profesional</div>
+                    <a href="mailto:gplacek@ibervistula.com">gplacek@ibervistula.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
